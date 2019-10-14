@@ -9,14 +9,14 @@ import socket
 import tkinter
 
 
-def getAddress(name, listPlace):
+def getAddress(name):
     ip_list = []
     address = socket.getaddrinfo(name,0,0,0,0)
     for result in address:
         ip_list.append(result[-1][0])
 #    ip_list = list(set(ip_list))
 
-    return ip_list[listPlace]
+    return ip_list
 
 
 def mainWindow():
@@ -32,10 +32,14 @@ def mainWindow():
     entry.pack()
 
     def textInput():
-        #TODO:  Change (4) to the size of ip_list
-        text.delete('1.0', 'end')
-        for i in range(4):
-            text.insert('1.0', getAddress(entry.get(), i) + '\n')
+        try:
+            listLen = len(getAddress(entry.get()))
+            text.delete('1.0', 'end')
+            for i in range(listLen):
+                text.insert('1.0', getAddress(entry.get())[i] + '\n')
+        except:
+            text.delete('1.0','end')
+            text.insert('1.0', "Unable to obtain information about that address.")
 
     # Button to grab the text
     button = tkinter.Button(window, text = "Search", command =  textInput)
@@ -53,3 +57,10 @@ def main():
     return
 
 main()
+
+#Followup Links
+
+# https://www.datacamp.com/community/tutorials/gui-tkinter-python#GM
+
+## TODO List
+# Add exception for socket.gaierror (getaddrinfo failed)
