@@ -32,6 +32,7 @@ def mainWindow():
     entry.pack()
 
     def textInput():
+        ## TODO:  create input validation for entry.get() -- remove initial and trailing spaces
         try:
             listLen = len(getAddress(entry.get()))
             text.delete('1.0', 'end')
