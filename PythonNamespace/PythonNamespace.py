@@ -1,5 +1,5 @@
 ##  Filename:  PythonNSLOOKUP.py
-##  Date Updated:  Oct. 12, 2019
+##  Date Updated:  Oct. 14, 2019
 ##  Author:  Jonas McClure (jonmcclu@iu.edu)
 
 ##  Purpose:  Allow input of web addresses and output the IP addresses associated with their domain names.
@@ -65,4 +65,4 @@ main()
 # https://www.datacamp.com/community/tutorials/gui-tkinter-python#GM
 
 ## TODO List
-# Add exception for socket.gaierror (getaddrinfo failed)
+# Enable pressing 'return' to hit the button
