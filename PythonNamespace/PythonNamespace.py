@@ -33,11 +33,12 @@ def mainWindow():
 
     def textInput():
         ## TODO:  create input validation for entry.get() -- remove initial and trailing spaces
+        userInput = entry.get().strip()
         try:
-            listLen = len(getAddress(entry.get()))
+            listLen = len(getAddress(userInput))
             text.delete('1.0', 'end')
             for i in range(listLen):
-                text.insert('1.0', getAddress(entry.get())[i] + '\n')
+                text.insert('1.0', getAddress(userInput)[i] + '\n')
         except:
             text.delete('1.0','end')
             text.insert('1.0', "Unable to obtain information about that address.")
