@@ -43,8 +43,18 @@ def mainWindow():
             text.delete('1.0','end')
             text.insert('1.0', "Unable to obtain information about that address.")
 
+    def onpress(event):
+        textInput()
+        return
+
+    def onclick(event=None):
+        textInput()
+        return
+
+    window.bind('<Return>', onclick)
+
     # Button to grab the text
-    button = tkinter.Button(window, text = "Search", command =  textInput)
+    button = tkinter.Button(window, text = "Search", command =  onclick)
     button.pack()
 
     text = tkinter.Text(window)
